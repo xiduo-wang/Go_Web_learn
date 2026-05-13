@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Hello</title>
+</head>
+<body>
+      <p>{{.student}}}</p>
+      <p>{{.m}}}</p>
+{{/* 此为注释 */}}
+{{/* 变量定义 */}}
+<hr>
+{{$v1 := 100}}
+{{$age := .m.age}}
+{{/* 条件判断 */}}
+<hr>
+{{if $v1}}
+{{$v1}}
+{{else}}
+啥也没有
+{{end}}
+<hr>
+{{if lt $age 22 }}  {{/* 比较函数 lt是小于的意思 */}}
+好好学习
+{{else}}
+好好上班
+{{end}}
+{{/* 遍历，接到index和value两个值 */}}
+<hr>
+{{range $idx,$hobby := .hobby}}
+    <p>id{{$idx}} - {{$hobby}}</p>
+{{else}}
+    啥爱好也没有
+{{end}}
+<hr>
+{{with .m}} {{/* 创建一个作用域 可省略m */}}
+      <p>{{.name}}</p>
+      <p>{{.age}}</p>
+      <p>{{.gender}}</p>
+{{end}}
+<hr>
+      {{/* 使用index方法取hobby索引为2的值 */}}
+{{index .hobby 2}}
+</body>
+</html>
